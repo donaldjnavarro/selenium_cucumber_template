@@ -2,11 +2,11 @@
  * Custom utilities developed for this project
  */
 
-import { config } from 'dotenv';
-import process from 'process';
+const { config } = require('dotenv');
+const process = require('process');
 config({ path: './.env' });
-import { Builder, Browser } from 'selenium-webdriver';
-import chrome from 'selenium-webdriver/chrome.js';
+const { Builder, Browser } = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
 
 /**
  * Configure the current browser in the .env file
@@ -15,13 +15,14 @@ import chrome from 'selenium-webdriver/chrome.js';
  * 
  * @returns {string} Name of the browser to be used
  */
-export function getBrowser () {
+function getBrowser () {
   return process.env.BROWSER ?
     process.env.BROWSER.toUpperCase() :
     'CHROME';
 }
+exports.getBrowser = getBrowser;
 
-export async function startBrowser (browserName = getBrowser()) {
+async function startBrowser (browserName = getBrowser()) {
   switch (browserName) {
     case 'CHROME': {
       /** Set Chrome-specific options */
@@ -42,3 +43,4 @@ export async function startBrowser (browserName = getBrowser()) {
         .build();
   }
 }
+exports.startBrowser = startBrowser;
