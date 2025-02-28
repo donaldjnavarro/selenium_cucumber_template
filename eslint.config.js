@@ -11,6 +11,7 @@ module.exports = {
   },
   ...pluginJs.configs.recommended,
   rules: {
-      semi: 'warn'
+      semi: 'warn',
+      "eol-last": 'error'
   }
 };
