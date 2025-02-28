@@ -12,7 +12,7 @@ const chrome = require('selenium-webdriver/chrome');
  * Configure the current browser in the .env file
  * Default to Chrome
  * Standardize to upper case
- * 
+ *
  * @returns {string} Name of the browser to be used
  */
 function getBrowser () {
