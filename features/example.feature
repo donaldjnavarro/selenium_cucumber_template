@@ -4,9 +4,7 @@ Feature: Example tests
 
   @wikipedia
   Scenario: Use search on Wikipedia
-    Given I open a web browser
-      And I navigate to "https://wikipedia.org"
+    Given I navigate to "https://wikipedia.org"
     When I input "Selenium" into the Wikipedia search bar and press enter
     Then I am navigated to the URL "https://en.wikipedia.org/wiki/Selenium"
-      And the page title is "Selenium - Wikipedia"
-    Given I close the web browser
+    Then the page title is "Selenium - Wikipedia"
