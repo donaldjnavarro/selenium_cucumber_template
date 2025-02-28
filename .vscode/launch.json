@@ -12,9 +12,9 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "runtimeExecutable": "node",
+            "runtimeExecutable": "npx",
             "runtimeArgs": [
-                "example.mjs"
+                "cucumber-js"
             ]
         }
     ]
