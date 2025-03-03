@@ -1,3 +1,6 @@
+/**
+ * @file Cucumber hooks
+ */
 const { BeforeAll, AfterAll, After, Before, Status } = require('@cucumber/cucumber');
 const { startBrowser } = require('../../utilities');
 
