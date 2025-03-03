@@ -9,14 +9,23 @@ const { By, Key } = require('selenium-webdriver');
  */
 class BasePage{
 
-  /**
-   * BasePage constructor
-   * @param {object} driver - the web driver instance for the web browser
-   */
   constructor(driver){
     this.driver = driver;
-    this.url = '';
+    this.expected = {
+      url: undefined
+    };
     driver.manage().setTimeouts({implicit: (10000)});
+  }
+
+  /**
+   * Checks if we are currently viewing the page
+   * @returns {Promise<boolean>} - Returns true if we are on the page
+   */
+  async isOnPage () {
+    return (
+      (await this.driver.getCurrentUrl())
+        .includes(this.expected.url)
+    );
   }
 
   /**

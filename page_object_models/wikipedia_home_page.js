@@ -9,14 +9,13 @@ const BasePage = require ('./base_page');
  */
 class WikipediaHomePage extends BasePage{
 
-  /**
-   * WikipediaHomePage constructor
-   * @param {object} driver - Web driver object for controlling the web browser
-   */
   constructor(driver){
     super(driver);
     this.driver = driver;
-    this.url = 'https://www.wikipedia.org';
+    this.expected = {
+      url: 'https://www.wikipedia.org',
+      pageTitle: 'Wikipedia'
+    };
   }
 
   /**
