@@ -5,6 +5,7 @@ const { Given, Then, When } = require('@cucumber/cucumber');
 const { Builder, Browser, Key, By, until } = require('selenium-webdriver');
 const { startBrowser } = require('../../utilities.js');
 const assert = require('assert');
+const BasePage = require('../../page_object_models/base_page.js');
 const WikipediaHomePage = require('../../page_object_models/wikipedia_home_page.js');
 const WikipediaContentPage = require('../../page_object_models/wikipedia_content_page.js');
 
@@ -25,10 +26,11 @@ When('I input {string} into the Wikipedia search bar and press enter', async fun
   await homePage.inputSearch(searchTerm);
 });
 
-Then('I am navigated to the URL {string}', async function (url) {
-  await this.driver.wait(until.urlContains(url), 10000);
+Then('I am navigated to the URL {string}', async function (expectedUrl) {
   const currentUrl = await this.driver.getCurrentUrl();
-  assert(currentUrl.includes(url));
+  assert(currentUrl.includes(expectedUrl),
+    `Expected URL ${expectedUrl} but found actual URL ${currentUrl}`
+  );
 });
 
 Then('the page title is {string}', async function (expectedTitle) {
@@ -36,10 +38,6 @@ Then('the page title is {string}', async function (expectedTitle) {
   assert(actualTitle === expectedTitle,
     `Expected page title ${expectedTitle} but actual page title ${actualTitle}`
   );
-});
-
-Given('I close the web browser', async function () {
-  await this.driver.quit();
 });
 
 Then('I am on a Wikipedia content page', async function () {
