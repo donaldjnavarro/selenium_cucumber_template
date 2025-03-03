@@ -16,6 +16,13 @@ class WikipediaContentPage extends BasePage {
     };
   }
 
+  /**
+   * Click the hamburger menu in the header
+   * @returns {Promise<void>}
+   */
+  async clickMenu () {
+    await this.clickElement('//input[@aria-label = \'Main menu\']');
+  }
 }
 
 module.exports = WikipediaContentPage;
