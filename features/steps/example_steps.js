@@ -1,4 +1,4 @@
-const { Given, Then, When } = require('cucumber');
+const { Given, Then, When } = require('@cucumber/cucumber');
 const { Builder, Browser, Key, By, until } = require('selenium-webdriver');
 const { startBrowser } = require('../../utilities.js');
 const { assert } = require('console');

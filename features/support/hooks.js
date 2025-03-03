@@ -1,4 +1,4 @@
-const { BeforeAll, AfterAll, After, Before, Status } = require('cucumber');
+const { BeforeAll, AfterAll, After, Before, Status } = require('@cucumber/cucumber');
 const { startBrowser } = require('../../utilities');
 
 // BeforeAll(async function () {
