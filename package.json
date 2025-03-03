@@ -11,9 +11,11 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
     "cucumber": "^6.0.7",
     "dotenv": "^16.4.7",
     "eslint": "^9.21.0",
+    "eslint-plugin-jsdoc": "^50.6.3",
     "selenium": "^2.20.0",
     "selenium-webdriver": "^4.29.0"
   }

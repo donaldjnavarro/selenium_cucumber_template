@@ -1,5 +1,5 @@
 /**
- * Custom utilities developed for this project
+ * @file Custom utilities developed for this project
  */
 
 const { config } = require('dotenv');
@@ -12,7 +12,6 @@ const chrome = require('selenium-webdriver/chrome');
  * Configure the current browser in the .env file
  * Default to Chrome
  * Standardize to upper case
- *
  * @returns {string} Name of the browser to be used
  */
 function getBrowser () {
@@ -22,6 +21,11 @@ function getBrowser () {
 }
 exports.getBrowser = getBrowser;
 
+/**
+ * Open a web browser
+ * @param {string} browserName - See the case switch within for supported options and syntax
+ * @returns {Promise<void>}
+ */
 async function startBrowser (browserName = getBrowser()) {
   switch (browserName) {
     case 'CHROME': {
