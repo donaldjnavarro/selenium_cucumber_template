@@ -48,3 +48,10 @@ Then('I am on a Wikipedia content page', async function () {
     'Expected to be on a Wikipedia Content Page'
   );
 });
+
+Then('I am on the Wikipedia Home Page', async function () {
+  const homePage = await new WikipediaHomePage(this.driver);
+  assert(await homePage.isOnPage() === true,
+    'Expected to be on the Wikipedia Home Page'
+  );
+});
