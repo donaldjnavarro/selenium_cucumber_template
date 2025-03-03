@@ -2,10 +2,8 @@
  * @file Example step definitions
  */
 const { Given, Then, When } = require('@cucumber/cucumber');
-const { Builder, Browser, Key, By, until } = require('selenium-webdriver');
 const { startBrowser } = require('../../utilities.js');
 const assert = require('assert');
-const BasePage = require('../../page_object_models/base_page.js');
 const WikipediaHomePage = require('../../page_object_models/wikipedia_home_page.js');
 const WikipediaContentPage = require('../../page_object_models/wikipedia_content_page.js');
 

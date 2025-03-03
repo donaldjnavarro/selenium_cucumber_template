@@ -1,7 +1,6 @@
 /**
  * @file BasePage page object model
  */
-const webdriver = require('selenium-webdriver');
 const { By, Key } = require('selenium-webdriver');
 
 /**

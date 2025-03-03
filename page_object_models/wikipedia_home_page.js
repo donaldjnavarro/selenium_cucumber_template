@@ -1,7 +1,6 @@
 /**
  * @file WikipediaHomePage page object model
  */
-const {Key, By } = require('selenium-webdriver');
 const BasePage = require ('./base_page');
 
 /**

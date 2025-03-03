@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   ...pluginJs.configs.recommended,
-  ...jsdoc.configs['flat/recommended'],
+  // ...jsdoc.configs['flat/recommended'],
   plugins: {
     jsdoc
   },
@@ -32,6 +32,8 @@ module.exports = {
     "capitalized-comments": ["warn", "always", { "ignoreConsecutiveComments": true }],
     "no-unneeded-ternary": 'warn',
     "no-unused-expressions": 'warn',
+    "no-unused-vars": 'warn',
+    "no-undef": 'error',
     "no-useless-catch": 'warn',
     "no-var": 'warn',
     "prefer-const": 'warn',
