@@ -14,6 +14,9 @@ Feature: Example tests
     Then I am navigated to the URL "https://en.wikipedia.org/wiki/Selenium"
     Then the page title is "Selenium - Wikipedia"
 
+  @backButton
+  Scenario: Use the web browser's back button
+    Given I navigate to "https://www.google.com"
     When I click the browser's back button
     Then I am on the Wikipedia Home Page
     Then I am navigated to the URL "https://www.wikipedia.org"
