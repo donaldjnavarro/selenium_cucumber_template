@@ -21,3 +21,4 @@ Feature: Example tests
     Then I am on the Wikipedia Home Page
     Then I am navigated to the URL "https://www.wikipedia.org"
     Then the page title is "Wikipedia"
+    When I input "Selenium" into the Wikipedia search bar and press enter
