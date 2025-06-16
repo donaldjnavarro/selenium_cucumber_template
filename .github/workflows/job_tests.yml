@@ -1,11 +1,16 @@
-name: Cucumber-Selenium Template
+name: Test job
+
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  workflow_call:
+    inputs:
+      env_file:
+        required: false
+        type: string
+
 jobs:
-  cucumber:
+  test:
+    # Run on any branch during PR workflows, otherwise only run on main
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.ref == 'refs/heads/main'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -23,15 +28,3 @@ jobs:
         cat .env
     - name: Run Cucumber tests
       run: npx cucumber-js
-  lint:
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm install eslint
-    - name: Lint
-      run: npx eslint --max-warnings=0

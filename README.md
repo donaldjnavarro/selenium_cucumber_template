@@ -2,14 +2,20 @@
 
 A basic automation template using Cucumber for step definitions and Selenium for web automation
 
+## Tech Stack
+
+- UI Automation: Selenium
+- BDD: Cucumber
+- Lint: Eslint
+
 ## Configuration
 
 ### .env file
 
 The dotenv package is used so that the user can provide secrets and user-specific configurations via their .env file without committing them to the repo
 
-* To setup: Make a copy of the `.env.template` file and name it `.env`
-* The .env file is for user-specific configurations and also for secrets. Therefore it is NOT version controlled.
+- To setup: Make a copy of the `.env.template` file and name it `.env`
+- The .env file is for user-specific configurations and also for secrets. Therefore it is NOT version controlled.
 
 ### Headless browsers
 

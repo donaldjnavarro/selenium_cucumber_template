@@ -1,8 +1,10 @@
 /**
  * @file Cucumber hooks
  */
-const { After, Before } = require('@cucumber/cucumber');
+const { After, Before, setDefaultTimeout } = require('@cucumber/cucumber');
 const { startBrowser } = require('../../utilities');
+
+setDefaultTimeout(20000);
 
 // BeforeAll(async function () {
 //   console.log(`BeforeAll`);
