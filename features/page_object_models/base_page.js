@@ -28,6 +28,28 @@ class BasePage{
   }
 
   /**
+   * Waits until the current page URL matches the expected URL or times out.
+   * @param {number} timeout - total time to wait in milliseconds.
+   * @param {number} pollInterval - time between checks in milliseconds.
+   * @returns {Promise<boolean>} - Resolves to true if the page is loaded within the timeout.
+   * @throws {Error} If the page does not load within the timeout.
+   */
+  async waitUntilOnPage(timeout = 10000, pollInterval = 500) {
+    const maxAttempts = Math.ceil(timeout / pollInterval);
+
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      try {
+        if (await this.isOnPage()) { return true; }
+      } catch (_) {
+
+      }
+      await new Promise(res => setTimeout(res, pollInterval));
+    }
+
+    throw new Error(`${this.constructor.name} did not load within ${timeout}ms`);
+  }
+
+  /**
    * Type into a text input field
    * @param {object} params - Named parameters
    * @param {string} params.xpath - xPath matching the text field element

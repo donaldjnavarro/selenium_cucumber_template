@@ -40,6 +40,7 @@ Then('the page title is {string}', async function (expectedTitle) {
 
 Then('I am on a Wikipedia content page', async function () {
   const contentPage = await new WikipediaContentPage(this.driver);
+  await contentPage.waitUntilOnPage();
   assert(await contentPage.isOnPage() === true,
     'Expected to be on a Wikipedia Content Page'
   );
@@ -47,6 +48,7 @@ Then('I am on a Wikipedia content page', async function () {
 
 Then('I am on the Wikipedia Home Page', async function () {
   const homePage = await new WikipediaHomePage(this.driver);
+  await homePage.waitUntilOnPage();
   assert(await homePage.isOnPage() === true,
     'Expected to be on the Wikipedia Home Page'
   );
