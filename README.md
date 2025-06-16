@@ -2,6 +2,12 @@
 
 A basic automation template using Cucumber for step definitions and Selenium for web automation
 
+## Tech Stack
+
+- UI Automation: Selenium
+- BDD: Cucumber
+- Lint: Eslint
+
 ## Configuration
 
 ### .env file
