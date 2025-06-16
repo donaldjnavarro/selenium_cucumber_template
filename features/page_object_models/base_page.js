@@ -40,7 +40,7 @@ class BasePage{
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       try {
         if (await this.isOnPage()) { return true; }
-      } catch (_) {
+      } catch {
 
       }
       await new Promise(res => setTimeout(res, pollInterval));
