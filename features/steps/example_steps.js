@@ -2,7 +2,7 @@
  * @file Example step definitions
  */
 const { Given, Then, When } = require('@cucumber/cucumber');
-const { startBrowser } = require('../../utilities.js');
+const { startBrowser } = require('../../utils/browser.js');
 const assert = require('assert');
 const WikipediaHomePage = require('../page_object_models/wikipedia_home_page.js');
 const WikipediaContentPage = require('../page_object_models/wikipedia_content_page.js');
