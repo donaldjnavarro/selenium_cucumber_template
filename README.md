@@ -4,10 +4,10 @@ A basic automation template using Cucumber for step definitions and Selenium for
 
 ## Tech Stack
 
-- UI Automation: Selenium
-- BDD: Cucumber
-- Lint: Eslint
-- Logging: Winston
+- **UI Automation:** Selenium
+- **BDD:** Cucumber
+- **Lint:** Eslint
+- **Logging:** Winston
 
 ## Configuration
 
@@ -32,16 +32,25 @@ Our framework layers:
 2. Step Definitions: `features/steps/*.js` files outline the step actions and call either Selenium methods directly, or call Page Models for reusable methods and data
 3. Page Object Models (Page Models): `page_object_models/*.js` files organize data and methods related to a given webpage that we will interact with.
 
+### Page Object Models
+
 Using a page object model approach, we are storing details about each webpage in `page_object_models/` folder, which provides a shared location for methods and locators related to a given page, and avoiding the step definition layer becoming too technical, or duplicating common actions or implementation details.
 
-## Lint
+### Cucumber layers
 
-We currently have heavy Eslint rule usage, because I like it and it makes our code all pretty and reliably uniform.
+In the ./features/support/ folder are cucumber tools
+
+1. **setup.js** provides broad, project-level actions handled during the test runs initial spin up.
+2. **hooks.js** is where we can hook actions into the test step handling itself such as before/after hooks.
+
+## Linter
+
+We currently have heavy Eslint rule usage. The current rules are heavy as an exercise exploring the available options. It is recommended that any projects started based on this repository should have the rules reviewed, and only use the rules that are contributing value to a given project's needs.
 
 ## Logging
 
-Using the Winston logging package, we manage logs of varying levels.
+Using the **Winston** logging package, our logging approach has been customized with enhanced features.
 
-Choose the lowest level logs you want to display:
+To choose the lowest level logs you want to display:
 
 - In the .env file, `LOG_LEVEL=` can be used to set the lowest level log to display. If this is not set, or is set with an invalid value, then all logs will be displayed.
