@@ -1,11 +1,13 @@
 /**
  * @file Example step definitions
  */
+const logger = require('../../utils/logger.js');
 const { Given, Then, When } = require('@cucumber/cucumber');
 const { startBrowser } = require('../../utils/browser.js');
 const assert = require('assert');
-const WikipediaHomePage = require('../page_object_models/wikipedia_home_page.js');
-const WikipediaContentPage = require('../page_object_models/wikipedia_content_page.js');
+const WikipediaHomePage = require('../object_models/pages/wikipedia_home_page.js');
+const WikipediaContentPage = require('../object_models/pages/wikipedia_content_page.js');
+const PostmanApi = require('../object_models/apis/postman_api.js');
 
 Given('I open a web browser', async function () {
   this.driver = await startBrowser();
@@ -22,6 +24,17 @@ Given('I navigate to {string}', async function (url) {
 When('I input {string} into the Wikipedia search bar and press enter', async function (searchTerm) {
   const homePage = await new WikipediaHomePage(this.driver);
   await homePage.inputSearch(searchTerm);
+});
+
+When('I send a demo API request', async function () {
+  const postman = new PostmanApi();
+  const response = await postman.getGet(
+    {
+      foo1: 'lorem',
+      foo2: 'ipsum'
+    }
+  );
+  logger.debug(`Demo API response.data: ${JSON.stringify(response.data)}`);
 });
 
 Then('I am navigated to the URL {string}', async function (expectedUrl) {

@@ -4,6 +4,7 @@
 const { createLogger, format, transports, config } = require('winston');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 
 /**
  * Create a fresh log file every run
@@ -32,6 +33,7 @@ const level = validLevels.includes(envLevel) ? envLevel : defaultLogLevel;
 /**
  * Create the logger instance
  */
+const timestampFormat = 'YYYY-MM-DD HH:mm:ss';
 const logger = createLogger({
   level,
   transports: [
@@ -39,7 +41,7 @@ const logger = createLogger({
     new transports.Console({
       format: format.combine(
         format.colorize({ all: false }),
-        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        format.timestamp({ format: timestampFormat }),
         format.printf(({ timestamp, level, message }) => {
           return `[${timestamp}] [${level}]: ${message}`;
         })
@@ -50,7 +52,7 @@ const logger = createLogger({
     new transports.File({
       filename: logFile,
       format: format.combine(
-        format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        format.timestamp({ format: timestampFormat }),
         format.printf(({ timestamp, level, message }) => {
           return `[${timestamp}] [${level.toUpperCase()}]: ${message}`;
         })

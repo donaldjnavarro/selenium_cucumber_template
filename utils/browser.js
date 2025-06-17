@@ -2,11 +2,10 @@
  * @file Custom utilities developed for this project
  */
 
-const { config } = require('dotenv');
 const process = require('process');
-config({ path: './.env' });
 const { Builder, Browser } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+require('dotenv').config();
 
 /**
  * Configure the current browser in the .env file
