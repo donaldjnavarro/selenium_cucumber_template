@@ -18,6 +18,7 @@
     "eslint": "^9.21.0",
     "eslint-plugin-jsdoc": "^50.6.3",
     "selenium": "^2.20.0",
-    "selenium-webdriver": "^4.29.0"
+    "selenium-webdriver": "^4.29.0",
+    "winston": "^3.17.0"
   }
 }

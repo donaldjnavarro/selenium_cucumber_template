@@ -7,6 +7,7 @@ A basic automation template using Cucumber for step definitions and Selenium for
 - UI Automation: Selenium
 - BDD: Cucumber
 - Lint: Eslint
+- Logging: Winston
 
 ## Configuration
 
@@ -36,3 +37,11 @@ Using a page object model approach, we are storing details about each webpage in
 ## Lint
 
 We currently have heavy Eslint rule usage, because I like it and it makes our code all pretty and reliably uniform.
+
+## Logging
+
+Using the Winston logging package, we manage logs of varying levels.
+
+Choose the lowest level logs you want to display:
+
+- In the .env file, `LOG_LEVEL=` can be used to set the lowest level log to display. If this is not set, or is set with an invalid value, then all logs will be displayed.
