@@ -5,7 +5,6 @@
 const process = require('process');
 const { Builder, Browser } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-require('dotenv').config();
 
 /**
  * Configure the current browser in the .env file

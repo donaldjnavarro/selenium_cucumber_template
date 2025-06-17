@@ -1,7 +1,6 @@
 /**
  * @file Example step definitions
  */
-const logger = require('../../utils/logger.js');
 const { Given, Then, When } = require('@cucumber/cucumber');
 const { startBrowser } = require('../../utils/browser.js');
 const assert = require('assert');
