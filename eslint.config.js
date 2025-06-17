@@ -10,7 +10,8 @@ module.exports = {
   languageOptions: {
     globals: {
       ...globals.browser,
-      ...globals.node
+      ...globals.node,
+      logger: 'readonly'
     }
   },
   ...pluginJs.configs.recommended,

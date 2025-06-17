@@ -2,7 +2,6 @@
  * @file Configure timeout for Cucumber
  */
 const { setDefaultTimeout } = require('@cucumber/cucumber');
-const logger = require('../utils/logger');
 
 /**
  * Sets the timeout for Cucumber
@@ -16,7 +15,7 @@ function setTimeout (timeout = Number(process.env.TIMEOUT || 20000)) {
   }
   // Set the timeout for Cucumber
   setDefaultTimeout(timeout);
-  logger.info(`Timeout set to ${timeout} ms`);
+  logger.info(`Cucumber timeout set to ${timeout} ms`);
   return timeout;
 }
 

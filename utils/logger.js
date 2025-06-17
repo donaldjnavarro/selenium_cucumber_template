@@ -4,7 +4,6 @@
 const { createLogger, format, transports, config } = require('winston');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config();
 
 /**
  * Create a fresh log file every run
@@ -66,4 +65,4 @@ module.exports = logger;
 if (!validLevels.includes(envLevel)) {
   logger.warn(`Invalid value set in .env: LOG_LEVEL=${process.env.LOG_LEVEL} but expected one of ${JSON.stringify(validLevels)} so defaulting to LOG_LEVEL=${defaultLogLevel}`);
 }
-logger.info(`Logger initialized with LOG_LEVEL=${level}`);
+logger.info(`Winston logger initialized with LOG_LEVEL=${level}`);

@@ -2,7 +2,6 @@
  * @file Core API handling. Note that handling of specific APIs is handled elsewhere, but uses this in its approach
  */
 const axios = require('axios');
-const logger = require('../../utils/logger');
 
 /**
  * Core API client for making HTTP requests using Axios.

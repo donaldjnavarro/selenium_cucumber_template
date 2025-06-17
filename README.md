@@ -43,7 +43,7 @@ Note that API models are also handled with the same pattern, using *base_api* in
 
 In the ./features/support/ folder are cucumber tools
 
-1. **setup.js** provides broad, project-level actions handled during the test runs initial spin up.
+1. **cucumber.bootstrap.js** provides broad, project-level actions handled during the test run's initial spin up.
 2. **hooks.js** is where we can hook actions into the test step handling itself such as before/after hooks.
 
 ## Linter
