@@ -8,11 +8,12 @@ const path = require('path');
 /**
  * Create a fresh log file every run
  */
-const logsDir = path.join(__dirname, '../logs');
+const logFolder = '../reports';
+const logsDir = path.join(__dirname, logFolder);
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
-const logFile = path.join(__dirname, '../logs/latest.log');
+const logFile = path.join(__dirname, logFolder + '/logs.log');
 fs.writeFileSync(logFile, '', { flag: 'w' });
 
 
