@@ -8,6 +8,7 @@ A basic automation template using Cucumber for step definitions and Selenium for
 - **BDD:** Cucumber
 - **Lint:** Eslint
 - **Logging:** Winston
+- **API:** Axios
 
 ## Configuration
 
@@ -35,6 +36,8 @@ Our framework layers:
 ### Page Object Models
 
 Using a page object model approach, we are storing details about each webpage in `page_object_models/` folder, which provides a shared location for methods and locators related to a given page, and avoiding the step definition layer becoming too technical, or duplicating common actions or implementation details.
+
+Note that API models are also handled with the same pattern, using *base_api* instead of *base_page*.
 
 ### Cucumber layers
 

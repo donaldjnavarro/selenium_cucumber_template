@@ -1,7 +1,7 @@
 /**
  * @file WikipediaHomePage page object model
  */
-const BasePage = require ('./base_page');
+const BasePage = require ('../base_page');
 
 /**
  *
