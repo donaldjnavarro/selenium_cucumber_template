@@ -8,12 +8,12 @@ const path = require('path');
 /**
  * Create a fresh log file every run
  */
-const logFolder = '../reports';
-const logsDir = path.join(__dirname, logFolder);
+const logFolder = 'reports';
+const logsDir = path.join(process.cwd(), logFolder);
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
-const logFile = path.join(__dirname, logFolder + '/logs.log');
+const logFile = path.join(process.cwd(), logFolder + '/logs.log');
 fs.writeFileSync(logFile, '', { flag: 'w' });
 
 
@@ -64,6 +64,6 @@ module.exports = logger;
 
 // Warn users if their .env has an invalid value for LOG_LEVEL
 if (!validLevels.includes(envLevel)) {
-  logger.warn(`Invalid value set in .env: LOG_LEVEL=${process.env.LOG_LEVEL} but expected one of ${JSON.stringify(validLevels)} so defaulting to LOG_LEVEL=${defaultLogLevel}`);
+  logger.debug(`Invalid value set in .env: LOG_LEVEL=${process.env.LOG_LEVEL} but expected one of ${JSON.stringify(validLevels)} so defaulting to LOG_LEVEL=${defaultLogLevel}`);
 }
-logger.info(`Winston logger initialized with LOG_LEVEL=${level}`);
+logger.debug(`Winston logger initialized with LOG_LEVEL=${level}`);
