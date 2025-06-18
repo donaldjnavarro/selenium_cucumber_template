@@ -8,7 +8,6 @@
 module.exports = {
   default: [
     '--require', './cucumber.bootstrap.js',
-    '--require', 'features/**/*.js',
-    '--publish-quiet'
+    '--require', 'features/**/*.js'
   ]
 };
