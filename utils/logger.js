@@ -64,6 +64,6 @@ module.exports = logger;
 
 // Warn users if their .env has an invalid value for LOG_LEVEL
 if (!validLevels.includes(envLevel)) {
-  logger.warn(`Invalid value set in .env: LOG_LEVEL=${process.env.LOG_LEVEL} but expected one of ${JSON.stringify(validLevels)} so defaulting to LOG_LEVEL=${defaultLogLevel}`);
+  logger.debug(`Invalid value set in .env: LOG_LEVEL=${process.env.LOG_LEVEL} but expected one of ${JSON.stringify(validLevels)} so defaulting to LOG_LEVEL=${defaultLogLevel}`);
 }
-logger.info(`Winston logger initialized with LOG_LEVEL=${level}`);
+logger.debug(`Winston logger initialized with LOG_LEVEL=${level}`);
