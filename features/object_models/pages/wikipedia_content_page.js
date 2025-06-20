@@ -11,6 +11,10 @@ class WikipediaContentPage extends BasePage {
   constructor(driver) {
     super(driver);
     this.driver = driver;
+    this.locators = {
+      menu: '//input[@aria-label = \'Main menu\']',
+      search: '//input[@name = \'search\' and @accesskey= \'f\']',
+    };
     this.expected = {
       url: 'https://en.wikipedia.org/wiki/'
     };
@@ -21,7 +25,21 @@ class WikipediaContentPage extends BasePage {
    * @returns {Promise<void>}
    */
   async clickMenu () {
-    await this.clickElement('//input[@aria-label = \'Main menu\']');
+    await this.clickElement(this.locators.menu);
+  }
+
+  /**
+   * Type text into search bar in the global header and press enter
+   * @param {string} searchText - Text to be typed
+   */
+  async inputSearch(searchText){
+    await this.inputText(
+      {
+        xpath: this.locators.search,
+        text: searchText,
+        thenHitEnter: true
+      }
+    );
   }
 }
 

@@ -10,6 +10,7 @@ class BasePage{
 
   constructor(driver){
     this.driver = driver;
+    this.locators = {};
     this.expected = {
       url: undefined
     };

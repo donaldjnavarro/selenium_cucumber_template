@@ -25,6 +25,11 @@ When('I input {string} into the Wikipedia search bar and press enter', async fun
   await homePage.inputSearch(searchTerm);
 });
 
+When('I input {string} into the Wikipedia global header search bar and press enter', async function (searchTerm) {
+  const contentPage = await new WikipediaContentPage(this.driver);
+  await contentPage.inputSearch(searchTerm);
+});
+
 When('I send a demo API request', async function () {
   const postman = new PostmanApi();
   const response = await postman.getGet(

@@ -11,6 +11,9 @@ class WikipediaHomePage extends BasePage{
   constructor(driver){
     super(driver);
     this.driver = driver;
+    this.locators = {
+      search: '//input[@name = \'search\']'
+    };
     this.expected = {
       url: 'https://www.wikipedia.org',
       pageTitle: 'Wikipedia'
@@ -22,7 +25,7 @@ class WikipediaHomePage extends BasePage{
    * @param {string} searchText - Text to be typed
    */
   async inputSearch(searchText){
-    await this.inputText({ xpath: '//input[@name = \'search\']', text: searchText, thenHitEnter: true });
+    await this.inputText({ xpath: this.locators.search, text: searchText, thenHitEnter: true });
   }
 }
 module.exports = WikipediaHomePage;
