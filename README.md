@@ -47,6 +47,14 @@ Using a page object model approach, we are storing details about each webpage in
 
 Note that API models are also handled with the same pattern, using *base_api* instead of *base_page*.
 
+#### Locators
+
+Each POM organizes common locators at the page level within `this.locators` so that its methods and external actions can reference the specific xpaths for elements in a single source of truth for a given page.
+
+#### POM expectation data
+
+While most test expectations will be stored at the step definition level, sometimes an expectation is more data oriented and benefits from having a centralized point of reference. An example of this is the expected URL or browser window title for a page. Expectation data of this nature is stored in the POM `this.expectations`
+
 ## Linter
 
 We currently have heavy Eslint rule usage. The current rules are heavy as an exercise exploring the available options. It is recommended that any projects started based on this repository should have the rules reviewed, and only use the rules that are contributing value to a given project's needs.
