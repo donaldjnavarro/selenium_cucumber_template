@@ -15,20 +15,24 @@ Before(async function () {
   /** Open a web browser to use for the testing */
   this.driver = await startBrowser();
 
-  const browserWidth = Number(process.env.BROWSER_WIDTH) || 1280;
-  const browserHeight = Number(process.env.BROWSER_HEIGHT) || 1080;
-  if (typeof browserHeight !== 'number' || typeof browserWidth !== 'number') {
-    logger.error('Invalid browser dimensions provided by .env');
+  try {
+    const browserWidth = Number(process.env.BROWSER_WIDTH) || 1280;
+    const browserHeight = Number(process.env.BROWSER_HEIGHT) || 1080;
+    if (typeof browserHeight !== 'number' || typeof browserWidth !== 'number') {
+      logger.error('Invalid browser dimensions provided by .env');
+    }
+    await this.driver.manage()
+      .window()
+      .setRect(
+        {
+          width: browserWidth,
+          height: browserHeight
+        }
+      );
+    logger.info(`Browser resized to width ${browserWidth} and height ${browserHeight}`);
+  } catch (err) {
+    throw new Error(`Problem resizing browser: ${err}`);
   }
-  await this.driver.manage()
-    .window()
-    .setRect(
-      {
-        width: browserWidth,
-        height: browserHeight
-      }
-    );
-  logger.info(`Browser resized to width ${browserWidth} and height ${browserHeight}`);
 });
 
 After(async function () {
