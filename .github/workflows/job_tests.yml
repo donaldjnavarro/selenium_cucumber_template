@@ -25,6 +25,8 @@ jobs:
         touch .env
         echo BROWSER=CHROME >> .env
         echo HEADLESS=true >> .env
+        echo BROWSER_WIDTH=1280 >> .env
+        echo BROWSER_HEIGHT=1080 >> .env
         cat .env
     - name: Run Cucumber tests
       run: npx cucumber-js
