@@ -29,7 +29,7 @@ Before(async function () {
           height: browserHeight
         }
       );
-    logger.info(`Browser resized to width ${browserWidth} and height ${browserHeight}`);
+    logger.debug(`Browser resized to width ${browserWidth} and height ${browserHeight}`);
   } catch (err) {
     throw new Error(`Problem resizing browser: ${err}`);
   }

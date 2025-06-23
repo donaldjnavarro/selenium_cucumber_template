@@ -7,6 +7,7 @@ const assert = require('assert');
 const WikipediaHomePage = require('../object_models/pages/wikipedia_home_page.js');
 const WikipediaContentPage = require('../object_models/pages/wikipedia_content_page.js');
 const PostmanApi = require('../object_models/apis/postman_api.js');
+const waitAndAssert = require('../../utils/timing.js');
 
 Given('I open a web browser', async function () {
   this.driver = await startBrowser();
@@ -42,17 +43,21 @@ When('I send a demo API request', async function () {
 });
 
 Then('I am navigated to the URL {string}', async function (expectedUrl) {
-  const currentUrl = await this.driver.getCurrentUrl();
-  assert(currentUrl.includes(expectedUrl),
-    `Expected URL ${expectedUrl} but found actual URL ${currentUrl}`
-  );
+  await waitAndAssert(async () => {
+    const currentUrl = await this.driver.getCurrentUrl();
+    assert(currentUrl.includes(expectedUrl),
+      `Expected URL ${expectedUrl} but found actual URL ${currentUrl}`
+    );
+  });
 });
 
 Then('the page title is {string}', async function (expectedTitle) {
-  const actualTitle = await this.driver.getTitle();
-  assert(actualTitle === expectedTitle,
-    `Expected page title ${expectedTitle} but actual page title ${actualTitle}`
-  );
+  await waitAndAssert(async () => {
+    const actualTitle = await this.driver.getTitle();
+    assert(actualTitle === expectedTitle,
+      `Expected page title ${expectedTitle} but actual page title ${actualTitle}`
+    );
+  });
 });
 
 Then('I am on a Wikipedia content page', async function () {
